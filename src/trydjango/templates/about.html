@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+<h1> This will be ignored </h1>
+{% block content %}
+<h1>this is the about page</h1>
+<p>
+    {{int}}, {{text}}
+    {{list}}
+</p>
+
+<ul>
+    <li>item1</li>
+    <li>item2</li>
+</ul>
+
+<ul>
+    {% for item in list %}
+        {% if item == 2 %}
+            <li>no. 2</li>
+        {% elif item == 1 %}
+            <li> this is one</li>
+        {% else %}
+             <li>{{forloop.counter}}-{{item}}</li>
+                {% endif %}
+    {% endfor %}
+</ul>
+{{request.user}}
+{% endblock %}
